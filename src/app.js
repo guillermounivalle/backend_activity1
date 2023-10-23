@@ -25,11 +25,11 @@ connect.then((db) => {
     console.log(err);
 })
 
-
 var indexRouter = require('./routes/index');
 var productListRouter = require('./routes/product_list_router');
 
-app.listen(5000);
+app.set('port', process.env.PORT || '3000')
+app.listen(app.get('port'));
 console.log('Server running on port 5000');
 
 //instances routers
