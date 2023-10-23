@@ -1,12 +1,10 @@
 var express = require('express');
 var path = require('path');
+var morgan = require('morgan');
 
 //Express
 var app = express();
 
-//Routes
-//var indexRouter = require('./routes/index');
-//var productListRouter = require('./routes/product_list_router');
 
 //Config module
 const config = require('./config');
@@ -25,15 +23,22 @@ connect.then((db) => {
     console.log(err);
 })
 
-var indexRouter = require('./routes/index');
-var productListRouter = require('./routes/product_list_router');
 
 app.set('port', process.env.PORT || '3000')
 app.listen(app.get('port'));
-console.log('Server running on port 5000');
+console.log(`Server running on port ${app.get('port')}`);
 
+//app.use(morgan('dev'));
+//app.use(express.json);
+
+//Routes
+//var indexRouter = require('./routes/index');
+var productListRouter = require('./routes/product_list_router');
 //instances routers
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use('/productslist', productListRouter);
+
+//static
+app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
