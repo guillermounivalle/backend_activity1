@@ -13,10 +13,9 @@ const config = require('./config');
 
 //Mongoose
 const mongoose = require('mongoose');
-const exp = require('constants');
+
 
 //Connection with mongodb
-
 const mongourl = `mongodb://${DB_HOST}${DB_NAME}`
 
 //SET PORT LISTENING
