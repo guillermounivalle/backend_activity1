@@ -1,5 +1,6 @@
 // info configuration server
 
-module.exports = {
-    mongoUrl : 'mongodb://0.0.0.0:27017/activity1',
-}
+require('dotenv').config();
+
+module.exports = {DB_HOST, DB_NAME, PORT, API_NAME, API_VERSION} = process.env;
+

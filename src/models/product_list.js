@@ -3,8 +3,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
-
 const productListSchema = new Schema({
     id: {
         type: Number,
@@ -26,8 +24,8 @@ const productListSchema = new Schema({
     }
 },{
     timestamps: true
-});
+},{collection: 'product_list'});
 
-var product_list = mongoose.model('product_list', productListSchema);
+var ProductList = mongoose.model('product_list', productListSchema);
 
-module.exports = product_list;
+module.exports = ProductList;
